@@ -36,6 +36,13 @@
     postMessage('PageMove', {href: this.href})
   }
 
+  const applyAdditionalCss = function () {
+    const style = document.createElement('link')
+    style.rel = 'stylesheet'
+    style.href = '/css/child.css'
+    document.getElementsByTagName('head')[0].appendChild(style)
+  }
+
   const setClickEventHandler = () => {
     const regexp = new RegExp(`^${childUrlBase}`)
     document.querySelectorAll('a').forEach(function (elm) {
@@ -61,8 +68,13 @@
   // iframe内でレンダリングされた場合にのみ発火させる
   if (window !== window.parent) {
     window.addEventListener('DOMContentLoaded', () => {
+      applyAdditionalCss()
       setClickEventHandler()
       replaceHref()
+
+      // CORS の都合か 親側だけで iframe の load を検知できないので
+      // 子iframeのload完了を親に伝える。
+      postMessage('PageDOMContentLoaded', {})
     }, false)
 
     window.addEventListener('load', () => {

@@ -1,0 +1,8 @@
+/* Remove child's header */
+body {
+    padding-top: 0;
+}
+
+.navbar {
+    display: none;
+}

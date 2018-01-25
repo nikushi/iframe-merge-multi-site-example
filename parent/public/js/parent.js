@@ -5,7 +5,8 @@
       let elm = window.document.getElementById('proxy-iframe')
       elm.style.height = `${data.height}px`
     },
-    PageMove: (data) => { window.location.href = data.href }
+    PageMove: (data) => { window.location.href = data.href },
+    PageDOMContentLoaded: (_data) => { window.document.getElementById('proxy-iframe').style.visibility = 'visible' },
   }
 
   window.addEventListener('message', (event) => {
