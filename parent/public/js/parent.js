@@ -4,7 +4,8 @@
       // iframe の height を調整
       let elm = window.document.getElementById('proxy-iframe')
       elm.style.height = `${data.height}px`
-    }
+    },
+    PageMove: (data) => { window.location.href = data.href }
   }
 
   window.addEventListener('message', (event) => {
