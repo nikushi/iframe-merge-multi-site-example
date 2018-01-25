@@ -1,7 +1,13 @@
 require 'sinatra'
+require 'sinatra/reloader'
 
 # iframe内でレンダリングできるよう X-Frame-Options を消す
 set :protection, :except => :frame_options
+
+# disable cache for development environment
+configure do
+  set :static_cache_control, [:public, :no_cache]
+end
 
 ORDERS = [
   { id: 1, product: 'フライヤー', price: 10000, username: 'ラクスル太郎' },
