@@ -3,11 +3,11 @@ require 'sinatra'
 CHILD_URL = 'http://localhost:5000'
 
 get '/' do
-	erb :top
+  erb :top
 end
 
 get '/proxy' do
-	path = params[:path] || ''
+  path = params[:path] || ''
   src = CHILD_URL + '/' + path
-	erb :proxy, locals: { src: src }
+  erb :proxy, locals: { src: src }
 end
