@@ -25,6 +25,13 @@
   }
 
   const clickEventHandler = function (mouseEvent) {
+    // shift, ctrl押しながら新しいウィンドウやタブで開く場合はその動作をさせる
+    if (mouseEvent.ctrlKey ||
+      mouseEvent.shiftKey ||
+      mouseEvent.metaKey || // Mac
+      (mouseEvent.button && mouseEvent.button === 1) // middle click
+    ) return
+
     mouseEvent.preventDefault()
     postMessage('PageMove', {href: this.href})
   }
