@@ -1,6 +1,8 @@
 # iframe-merge-multi-site-example
 
-複数サイト(CORS) を iframe を使って1サイトとして表示するトリックのサンプルアプリ
+複数サイト(CORS) を iframe を使って1サイトとして表示するトリックのサンプルアプリ。
+
+Google Chrome 64.0.3282.119 で動作確認しました。Google Chrome 以外では動作しないかもしれません。
 
 実行すると以下の2サイトが起動します
 
